@@ -19,6 +19,10 @@ export const Left = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
+
+  @media(max-width: 768px) {
+    display: none;
+  }
 `
 export const Hero = styled.div`
   color: #f0f0f5;

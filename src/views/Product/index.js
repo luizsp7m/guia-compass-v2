@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Container } from './styles';
 
+import Header from '../../components/Header';
 import Gallery from '../../components/Gallery';
 import Description from '../../components/Description';
 import Details from '../../components/Details';
@@ -11,6 +12,7 @@ import Parallax from '../../components/Parallax';
 function Product() {
   return (
     <Container>
+      <Header />
       <Gallery />
       <Description />
       <Details />

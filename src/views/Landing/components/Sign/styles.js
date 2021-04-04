@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background: rgba(1, 2, 3, .8);
+  background: #f0f0f5;
   position: fixed;
   top: 0;
   bottom: 0;

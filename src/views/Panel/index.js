@@ -16,7 +16,7 @@ import data from '../../data/roupeiros.json';
 const manufacturers = ['Henn', 'Henn', 'Henn', 'Henn', 'Henn', 'Henn', 'Henn', 'Henn']
 
 function Panel() {
-  const [isShowFilter, setIsShowFilter] = useState(true);
+  const [toggled, setToggled] = useState(false);
 
   return (
     <Container>
@@ -37,7 +37,7 @@ function Panel() {
               <div className="search-filter">
                 <span>5 resultados encontrados</span>
 
-                <button onClick={() => setIsShowFilter(true)}>
+                <button onClick={() => setToggled(true)}>
                   <BsFilterRight size={24} color={'#8FA7B2'} />
                 </button>
               </div>
@@ -52,28 +52,26 @@ function Panel() {
             </div>
           </Products>
 
-          {isShowFilter && (
-            <Filter>
-              <button className="close" onClick={() => setIsShowFilter(false)}>
-                <MdClose size={24} color={'#fafafa'} />
-              </button>
+          <Filter toggled={toggled}>
+            <button className="close" onClick={() => setToggled(false)}>
+              <MdClose size={26} color={'#EA2027'} />
+            </button>
 
-              <h3>Fabricante</h3>
+            <h3>Fabricante</h3>
 
-              <div className="filter-content">
-                {
-                  manufacturers.map((manufacturer, index) => (
-                    <div className="filter-body" key={index}>
-                      <input type="checkbox" id="fabricante" name="fabricante" />
-                      <label>{manufacturer}</label>
-                    </div>
-                  ))
-                }
-              </div>
+            <div className="filter-content">
+              {
+                manufacturers.map((manufacturer, index) => (
+                  <div className="filter-body" key={index}>
+                    <input type="checkbox" id="fabricante" name="fabricante" />
+                    <label>{manufacturer}</label>
+                  </div>
+                ))
+              }
+            </div>
 
-              <button className="apply" onClick={() => setIsShowFilter(false)}>Aplicar</button>
-            </Filter>
-          )}
+            <button className="apply" onClick={() => setToggled(false)}>Aplicar</button>
+          </Filter>
         </Grid>
       </Content>
     </Container>

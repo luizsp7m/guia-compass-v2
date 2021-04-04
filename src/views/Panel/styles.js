@@ -15,7 +15,7 @@ export const Grid = styled.div`
   grid-template-columns: 80fr 20fr;
   gap: 2rem;
 
-  @media(max-width: 425px) {
+  @media(max-width: 768px) {
     grid-template-columns: 1fr;
   }
 `
@@ -86,7 +86,7 @@ export const Products = styled.div`
         display: none;
       }
 
-      @media(max-width: 425px) {
+      @media(max-width: 768px) {
         > button {
           background: #fafafa;
           padding: .5rem;
@@ -155,59 +155,67 @@ export const Filter = styled.div`
         color: #7C99A7;
       }
     }
-  } 
+  }
 
-  @media(max-width: 425px) {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    border: 0;
-    padding: 5rem;
-    border-radius: 0;
-    z-index: 5;
+  ${props => {
+    if(props.toggled) {
+      return `
+        @media(max-width: 768px) {
+          position: fixed;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          left: 0;
+          border: 0;
+          padding: 5rem;
+          border-radius: 0;
+          z-index: 5;
 
-    > button {
-      display: block;
-    }
+          > button {
+            display: block;
+          }
 
-    > h3 {
-      font-size: 3rem;
-    }
+          > h3 {
+            font-size: 2.75rem;
+          }
 
-    > div.filter-content {
-      margin: 3rem 0;
+          > div.filter-content {
+            margin: 4rem 0;
 
-      > div.filter-body {
-        > label {
-          font-size: 2rem;
+            > div.filter-body {
+              > label {
+                font-size: 2rem;
+              }
+            }
+          }
+
+          > button.apply {
+            width: 100%;
+            height: 6rem;
+            border: 0;
+            background: #44BD32;
+            color: #fafafa;
+            font-weight: 600;
+            border-radius: .5rem;
+            outline: 0;
+          }
+
+          > button.close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 0;
+            border: 0;
+            background: 0;
+            height: 4rem;
+            width: 4rem;
+            outline: 0;
+          }
         }
-      }
+      `
+    } else {
+      return `
+      `
     }
-
-    > button.apply {
-      width: 100%;
-      height: 5rem;
-      border: 0;
-      background: #44BD32;
-      color: #fafafa;
-      font-weight: 600;
-      border-radius: .5rem;
-      outline: 0;
-    }
-
-    > button.close {
-      position: absolute;
-      top: 3rem;
-      right: 3rem;
-      font-size: 0;
-      border: 0;
-      background: #EA2027;
-      border-radius: 50%;
-      height: 4rem;
-      width: 4rem;
-      outline: 0;
-    }
-  } 
+  }}
 `

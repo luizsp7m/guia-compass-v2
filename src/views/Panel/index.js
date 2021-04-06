@@ -22,7 +22,7 @@ function Panel() {
     <Container>
       <Header />
       <Content>
-        <Profile />
+        {/* <Profile /> */}
         <Partners />
         <Grid>
           <Products>
